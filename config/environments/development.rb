@@ -26,4 +26,19 @@ ResumeCreator::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.raise_delivery_errors = true
+  ActionMailer::Base.default charset: "utf-8", content_type: "text/html"
+  config.action_mailer.smtp_settings = {
+      :address => 'smtp.gmail.com',
+      :port => 587,
+      :authentication => 'plain',
+      :user_name => 'michaelfebrianto@gmail.com',
+      :password => 'MfC221686',
+      :enable_starttls_auto => true,
+      :domain => 'gmail.com'
+  }
+
 end
