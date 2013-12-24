@@ -1,4 +1,8 @@
 ResumeCreator::Application.routes.draw do
+  namespace :backend do
+    resources :customers
+  end
+
   devise_for :users
   get "backend/welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.

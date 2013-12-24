@@ -1,0 +1,31 @@
+<h1>Listing backend_customers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @backend_customers.each do |backend_customer| %>
+      <tr>
+        <td><%= backend_customer.email %></td>
+        <td><%= backend_customer.first_name %></td>
+        <td><%= backend_customer.last_name %></td>
+        <td><%= link_to 'Show', backend_customer %></td>
+        <td><%= link_to 'Edit', edit_backend_customer_path(backend_customer) %></td>
+        <td><%= link_to 'Destroy', backend_customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Customer', new_backend_customer_path %>
