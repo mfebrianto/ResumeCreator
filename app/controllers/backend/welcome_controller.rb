@@ -1,6 +1,5 @@
-class Backend::WelcomeController < ApplicationController
+class Backend::WelcomeController < Backend::BackendController
 
-  before_filter :authenticate_user!
 
   def index
   end
