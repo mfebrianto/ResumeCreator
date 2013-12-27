@@ -7,6 +7,10 @@ gem 'rails', '4.0.2'
 gem 'mysql2', '0.3.14'
 gem 'devise', '3.2.2'
 
+# for BDD
+gem 'rspec',  '2.14.1'
+gem 'cucumber', '1.3.10'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
