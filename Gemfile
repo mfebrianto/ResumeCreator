@@ -7,9 +7,6 @@ gem 'rails', '4.0.2'
 gem 'mysql2', '0.3.14'
 gem 'devise', '3.2.2'
 
-# for BDD
-gem 'rspec',  '2.14.1'
-gem 'cucumber', '1.3.10'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -35,6 +32,22 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', '4.3.0'
+end
+
+group :test do
+  gem 'faker', '1.2.0'
+  gem 'capybara-webkit', '1.1.1'
+  gem 'guard-rspec'
+  gem 'launchy', '2.4.2'
+  gem 'database_cleaner'
+  gem 'email_spec', '1.5.0'
+  gem 'action_mailer_cache_delivery', '0.3.7'
 end
 
 # Use ActiveModel has_secure_password
