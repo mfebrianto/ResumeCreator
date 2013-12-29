@@ -1,6 +1,6 @@
 class Api::V1::CustomersController < Api::ApiController
 
-  before_filter :restrict_access
+
 
   respond_to :json
 
@@ -35,11 +35,6 @@ class Api::V1::CustomersController < Api::ApiController
   # Never trust parameters from the scary internet, only allow the white list through.
   def backend_customer_params
     params.require(:backend_customer).permit(:email, :first_name, :last_name)
-  end
-
-  def restrict_access
-    api_key = ApiKey.find_by_access_token(params[:access_token])
-    head :unauthorized unless api_key
   end
 
 end
