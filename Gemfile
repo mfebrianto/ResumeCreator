@@ -48,6 +48,8 @@ group :test do
   gem 'database_cleaner'
   gem 'email_spec', '1.5.0'
   gem 'action_mailer_cache_delivery', '0.3.7'
+  gem 'simplecov', '0.8.2'
+  gem 'spork', '0.9.2'
 end
 
 # Use ActiveModel has_secure_password

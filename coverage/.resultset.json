@@ -1,0 +1,48 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/mfebrianto/Dev/f2/ResumeCreator/spec/models/backend/user_spec.rb": [
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/mfebrianto/Dev/f2/ResumeCreator/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/mfebrianto/Dev/f2/ResumeCreator/app/controllers/backend/welcome_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/mfebrianto/Dev/f2/ResumeCreator/app/controllers/backend/backend_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1388290816
+  }
+}

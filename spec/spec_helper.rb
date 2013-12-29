@@ -8,6 +8,9 @@ require 'rspec/autorun'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'email_spec'
+require 'simplecov'
+
+SimpleCov.start
 
 Capybara.javascript_driver = :webkit
 
