@@ -11,13 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131226114025) do
-
-  create_table "api_keys", force: true do |t|
-    t.string   "access_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20131229054023) do
 
   create_table "backend_customers", force: true do |t|
     t.string   "email"
@@ -44,6 +38,7 @@ ActiveRecord::Schema.define(version: 20131226114025) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "api_key"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

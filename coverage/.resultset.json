@@ -4,6 +4,15 @@
       "/Users/mfebrianto/Dev/f2/ResumeCreator/spec/models/backend/user_spec.rb": [
         1,
         null,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        null,
         null,
         1,
         1,
@@ -11,11 +20,13 @@
         1,
         1,
         1,
+        null,
+        null,
         1,
         1,
         1,
-        1,
-        1,
+        null,
+        null,
         null,
         null
       ],
@@ -43,6 +54,6 @@
         null
       ]
     },
-    "timestamp": 1388290816
+    "timestamp": 1388296915
   }
 }
