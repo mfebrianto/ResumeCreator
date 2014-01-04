@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131229054023) do
+ActiveRecord::Schema.define(version: 20140104130931) do
 
   create_table "backend_customers", force: true do |t|
     t.string   "email"
@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(version: 20131229054023) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "backend_educations", force: true do |t|
+    t.string   "activities"
+    t.integer  "backend_customer_id"
+    t.string   "degree"
+    t.datetime "end_date"
+    t.string   "field_of_study"
+    t.string   "notes"
+    t.string   "school_name"
+    t.datetime "start_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "backend_educations", ["backend_customer_id"], name: "backend_educations_backend_customer_id_fk", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -44,5 +59,7 @@ ActiveRecord::Schema.define(version: 20131229054023) do
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  add_foreign_key "backend_educations", "backend_customers", name: "backend_educations_backend_customer_id_fk"
 
 end

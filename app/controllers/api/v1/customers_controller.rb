@@ -6,7 +6,9 @@ class Api::V1::CustomersController < Api::ApiController
 
   def index
     @backend_customers = Backend::Customer.all
-    respond_with @backend_customers
+    respond_with do |format|
+      format.json  { render :json => @backend_customers.to_json(:include => [:backend_education])}
+    end
   end
 
 
