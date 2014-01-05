@@ -21,6 +21,13 @@ class Api::V1::CustomersController < Api::ApiController
 
     respond_to do |format|
       if @backend_customer.save
+
+        params[:backend_education].each do |x|
+          education = Backend::Education.new(x)
+          education.backend_customer = @backend_customer
+          education.save
+        end
+
         format.json { render json: @backend_customer, status: :created }
       else
         format.json { render json: @backend_customer.errors, status: :unprocessable_entity }
