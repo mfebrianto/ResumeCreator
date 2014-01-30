@@ -1,6 +1,8 @@
-class Backend::CustomersController < Backend::BackendController
+class Backend::CustomersController < ApplicationController
 
   respond_to :html
+
+  before_filter :authenticate_user!, except: [:new]
 
   before_action :set_backend_customer, only: [:show, :edit, :update, :destroy]
 
@@ -14,7 +16,23 @@ class Backend::CustomersController < Backend::BackendController
 
   # GET /backend/customers/new
   def new
-    @backend_customer = Backend::Customer.new
+    #@backend_customer = Backend::Customer.new
+
+    #to get all params
+    #params.each do |key,value|
+    #  Rails.logger.info "Param #{key}: #{value}"
+    #end
+
+    #get access token
+    if params[:code]
+      response = RestClient.get 'https://www.linkedin.com/uas/oauth2/accessToken', {:params => {:grant_type => 'authorization_code', :code => params[:code], :redirect_uri => 'http://localhost:3000/backend/customers/new', :client_id => '75yhpntmdw2vi9', :client_secret => 'j5XlET79axKLm4nL'}}
+
+      #parse access token
+      new_response = JSON.parse(response)
+      Rails.logger.info "access token : #{new_response['access_token']}"
+      Rails.logger.info "expires in : #{new_response['expires_in']}"
+    end
+
   end
 
   # GET /backend/customers/1/edit
