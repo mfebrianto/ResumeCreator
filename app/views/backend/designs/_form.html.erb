@@ -1,0 +1,21 @@
+<%= form_for(@backend_design) do |f| %>
+  <% if @backend_design.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@backend_design.errors.count, "error") %> prohibited this backend_design from being saved:</h2>
+
+      <ul>
+      <% @backend_design.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

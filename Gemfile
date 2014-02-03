@@ -31,7 +31,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'haml', '4.0.5'
+gem 'cancan', '1.6.10'
 gem 'rest-client', '1.6.7'
+#gem 'strong_parameters', "~> 0.2.3"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

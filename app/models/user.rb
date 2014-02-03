@@ -6,6 +6,13 @@ class User < ActiveRecord::Base
 
   before_create :generate_api_key
 
+  has_and_belongs_to_many :roles
+  has_one :backend_customer
+
+  def has_role?(role_sym)
+    roles.any? { |r| r.name.underscore.to_sym == role_sym }
+  end
+
   private
 
   def generate_api_key

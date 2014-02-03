@@ -17,22 +17,10 @@ class Backend::CustomersController < ApplicationController
   # GET /backend/customers/new
   def new
     #@backend_customer = Backend::Customer.new
-
     #to get all params
     #params.each do |key,value|
     #  Rails.logger.info "Param #{key}: #{value}"
     #end
-
-    #get access token
-    if params[:code]
-      response = RestClient.get 'https://www.linkedin.com/uas/oauth2/accessToken', {:params => {:grant_type => 'authorization_code', :code => params[:code], :redirect_uri => 'http://localhost:3000/backend/customers/new', :client_id => '75yhpntmdw2vi9', :client_secret => 'j5XlET79axKLm4nL'}}
-
-      #parse access token
-      new_response = JSON.parse(response)
-      Rails.logger.info "access token : #{new_response['access_token']}"
-      Rails.logger.info "expires in : #{new_response['expires_in']}"
-    end
-
   end
 
   # GET /backend/customers/1/edit
@@ -73,6 +61,25 @@ class Backend::CustomersController < ApplicationController
       format.html { redirect_to backend_customers_url }
     end
   end
+
+  def complete_profile
+
+    #get access_token
+    @linkedin_data = LinkedinData.find_by(email:current_user.email)
+
+    #get all data
+    response = RestClient.get 'https://api.linkedin.com/v1/people/~:(first-name,last-name,headline,picture-url)', {:params => {:oauth2_access_token => @linkedin_data.access_token, :format => 'json'}}
+
+    #parse access token
+    full_data_response = JSON.parse(response)
+    @backend_customer = Backend::Customer.find_or_initialize_by(user_id:current_user)
+    @backend_customer.update(first_name: full_data_response['firstName'], last_name: full_data_response['lastName'], picture_url: full_data_response['pictureUrl'], user_id: current_user.id)
+    if @backend_customer.save
+      redirect_to backend_welcome_index_url
+    end
+  end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

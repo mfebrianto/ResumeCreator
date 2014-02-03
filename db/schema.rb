@@ -11,12 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140104130931) do
+ActiveRecord::Schema.define(version: 20140203080302) do
 
   create_table "backend_customers", force: true do |t|
-    t.string   "email"
     t.string   "first_name"
     t.string   "last_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "picture_url"
+    t.integer  "user_id",     null: false
+  end
+
+  add_index "backend_customers", ["user_id"], name: "backend_customers_user_id_fk", using: :btree
+
+  create_table "backend_designs", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,6 +44,26 @@ ActiveRecord::Schema.define(version: 20140104130931) do
   end
 
   add_index "backend_educations", ["backend_customer_id"], name: "backend_educations_backend_customer_id_fk", using: :btree
+
+  create_table "linkedin_data", force: true do |t|
+    t.string   "email",        null: false
+    t.string   "access_token", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "linkedin_data", ["email"], name: "index_linkedin_data_on_email", unique: true, using: :btree
+
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles_users", id: false, force: true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -59,6 +88,8 @@ ActiveRecord::Schema.define(version: 20140104130931) do
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  add_foreign_key "backend_customers", "users", name: "backend_customers_user_id_fk"
 
   add_foreign_key "backend_educations", "backend_customers", name: "backend_educations_backend_customer_id_fk"
 

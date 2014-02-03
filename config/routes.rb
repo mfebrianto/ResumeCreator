@@ -1,7 +1,17 @@
 ResumeCreator::Application.routes.draw do
   namespace :backend do
-    resources :customers
+    resources :designs
+
+
+    resources :customers do
+      collection do
+        get 'complete_profile'
+      end
+    end
+
+    resources :welcome
   end
+
 
   namespace :api do
     namespace :v1 do
@@ -9,13 +19,16 @@ ResumeCreator::Application.routes.draw do
     end
   end
 
-  devise_for :users
-  get "backend/welcome/index"
+#  devise_for :users
+#  get "backend/welcome/index"
+
+  devise_for :users, :controllers => {:registrations => "registrations"}
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'backend/welcome#index'
+  root 'backend/customers#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
