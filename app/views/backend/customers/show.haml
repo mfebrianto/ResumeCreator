@@ -1,0 +1,18 @@
+= render 'layouts/header'
+
+%p{:id => "notice"}= notice
+
+%p
+  %strong First Name:
+  = @backend_customer.first_name
+
+%p
+  %strong last name:
+  = @backend_customer.last_name
+
+
+%p
+  %strong Photo:
+  = @backend_customer.picture_url
+
+= link_to 'Back', backend_welcome_index_path

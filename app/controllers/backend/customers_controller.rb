@@ -75,7 +75,7 @@ class Backend::CustomersController < ApplicationController
     @backend_customer = Backend::Customer.find_or_initialize_by(user_id:current_user)
     @backend_customer.update(first_name: full_data_response['firstName'], last_name: full_data_response['lastName'], picture_url: full_data_response['pictureUrl'], user_id: current_user.id)
     if @backend_customer.save
-      redirect_to backend_welcome_index_url
+      render action: 'show'
     end
   end
 

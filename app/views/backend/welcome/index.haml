@@ -1,0 +1,10 @@
+= render 'layouts/header'
+
+%h1 Backend::Welcome#index
+%p Find me in app/views/backend/welcome/index.html.erb
+/= link_to 'Create New Customer', backend_customers_path
+
+= link_to 'Fetch my information from Linked in', complete_profile_backend_customers_path
+
+- if can? :manage, @backend_design
+  = link_to 'View All Designs', new_backend_design_path

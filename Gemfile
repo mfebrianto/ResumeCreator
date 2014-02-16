@@ -3,11 +3,15 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-# Use sqlite3 as the database for Active Record
 gem 'mysql2', '0.3.14'
+
+#authentication and authorisation
 gem 'devise', '3.2.2'
 gem 'foreigner', '1.6.0'
+gem 'cancan', '1.6.10'
 
+#to save profile picture
+gem 'paperclip', '4.1.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -31,7 +35,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'haml', '4.0.5'
-gem 'cancan', '1.6.10'
 gem 'rest-client', '1.6.7'
 #gem 'strong_parameters', "~> 0.2.3"
 
