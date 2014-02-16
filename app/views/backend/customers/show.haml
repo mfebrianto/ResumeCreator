@@ -15,4 +15,8 @@
   %strong Photo:
   = @backend_customer.picture_url
 
+%p
+  %strong Photo
+  =image_tag @backend_customer.photo.url
+
 = link_to 'Back', backend_welcome_index_path

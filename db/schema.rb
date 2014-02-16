@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203080302) do
+ActiveRecord::Schema.define(version: 20140216085048) do
 
   create_table "backend_customers", force: true do |t|
     t.string   "first_name"
@@ -19,7 +19,11 @@ ActiveRecord::Schema.define(version: 20140203080302) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "picture_url"
-    t.integer  "user_id",     null: false
+    t.integer  "user_id",            null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "backend_customers", ["user_id"], name: "backend_customers_user_id_fk", using: :btree

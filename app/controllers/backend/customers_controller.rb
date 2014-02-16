@@ -73,6 +73,10 @@ class Backend::CustomersController < ApplicationController
     #parse access token
     full_data_response = JSON.parse(response)
     @backend_customer = Backend::Customer.find_or_initialize_by(user_id:current_user)
+    unless full_data_response['pictureUrl'].blank?
+      @backend_customer.photo_from_url full_data_response['pictureUrl']
+    end
+    Rails.logger.info ">>>>>> #{@backend_customer.photo}"
     @backend_customer.update(first_name: full_data_response['firstName'], last_name: full_data_response['lastName'], picture_url: full_data_response['pictureUrl'], user_id: current_user.id)
     if @backend_customer.save
       render action: 'show'
