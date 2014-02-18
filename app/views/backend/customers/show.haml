@@ -19,4 +19,40 @@
   %strong Photo
   =image_tag @backend_customer.photo.url
 
+%h1
+  your Educations
+
+
+%div
+  %div{:style => "float:left; margin-right:20px;"}
+    degree
+  %div{:style => "float:left; margin-right:20px;"}
+    school name
+  %div{:style => "float:left; margin-right:20px;"}
+    field of study
+  %div{:style => "float:left; margin-right:20px;"}
+    notes
+  %div{:style => "float:left; margin-right:20px;"}
+    start_date
+  %div{:style => "float:none; margin-right:20px;"}
+    end_date
+
+-@backend_customer.backend_education.each do |edu|
+  %div
+    %div{:style => "float:left; margin-right:20px;"}
+      = edu.degree
+    %div{:style => "float:left; margin-right:20px;"}
+      = edu.school_name
+    %div{:style => "float:left; margin-right:20px;"}
+      = edu.field_of_study
+    %div{:style => "float:left; margin-right:20px;"}
+      = edu.notes
+    %div{:style => "float:left; margin-right:20px;"}
+      = edu.start_date
+    %div{:style => "float:none; margin-right:20px;"}
+      = edu.end_date
+
+
+
+
 = link_to 'Back', backend_welcome_index_path
