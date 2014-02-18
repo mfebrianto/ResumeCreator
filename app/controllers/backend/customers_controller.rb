@@ -87,8 +87,12 @@ class Backend::CustomersController < ApplicationController
       #parse educations
       education_response.each do |object|
         @backend_education = Backend::Education.find_or_initialize_by(id:object['id'])
-        start_date=Date.parse(((object['startDate'])['year']).to_s+'-01-01 00:00:00 UTC')
-        end_date=Date.parse(((object['endDate'])['year']).to_s+'-01-01 00:00:00 UTC')
+        unless (object['startDate']).nil?
+          start_date=Date.parse(((object['startDate'])['year']).to_s+'-01-01 00:00:00 UTC')
+        end
+        unless (object['endDate']).nil?
+          end_date=Date.parse(((object['endDate'])['year']).to_s+'-01-01 00:00:00 UTC')
+        end
         Rails.logger.info ">>>>>>>#{start_date}"
         @backend_education.update(backend_customer_id:@backend_customer.id, activities:object['activities'], degree: object['degree'], end_date:end_date , field_of_study:object['fieldOfStudy'], notes:object['notes'],school_name:object['schoolName'],start_date:start_date)
         @backend_education.save
