@@ -68,19 +68,35 @@ class Backend::CustomersController < ApplicationController
     @linkedin_data = LinkedinData.find_by(email:current_user.email)
 
     #get all data
-    response = RestClient.get 'https://api.linkedin.com/v1/people/~:(first-name,last-name,headline,picture-url)', {:params => {:oauth2_access_token => @linkedin_data.access_token, :format => 'json'}}
+    response = RestClient.get 'https://api.linkedin.com/v1/people/~:(first-name,last-name,headline,picture-url,educations)', {:params => {:oauth2_access_token => @linkedin_data.access_token, :format => 'json'}}
+
+    #view all
+    full_data_response = JSON.parse(response)
+    education_response = (full_data_response['educations'])['values']
+    Rails.logger.info ">>>>>>#{education_response}"
 
     #parse access token
-    full_data_response = JSON.parse(response)
     @backend_customer = Backend::Customer.find_or_initialize_by(user_id:current_user)
     unless full_data_response['pictureUrl'].blank?
       @backend_customer.photo_from_url full_data_response['pictureUrl']
     end
-    Rails.logger.info ">>>>>> #{@backend_customer.photo}"
+
     @backend_customer.update(first_name: full_data_response['firstName'], last_name: full_data_response['lastName'], picture_url: full_data_response['pictureUrl'], user_id: current_user.id)
     if @backend_customer.save
-      render action: 'show'
+
+      #parse educations
+      education_response.each do |object|
+        @backend_education = Backend::Education.find_or_initialize_by(id:object['id'])
+        start_date=Date.parse(((object['startDate'])['year']).to_s+'-01-01 00:00:00 UTC')
+        end_date=Date.parse(((object['endDate'])['year']).to_s+'-01-01 00:00:00 UTC')
+        Rails.logger.info ">>>>>>>#{start_date}"
+        @backend_education.update(backend_customer_id:@backend_customer.id, activities:object['activities'], degree: object['degree'], end_date:end_date , field_of_study:object['fieldOfStudy'], notes:object['notes'],school_name:object['schoolName'],start_date:start_date)
+        @backend_education.save
+      end
     end
+
+    render action: 'show'
+
   end
 
 
