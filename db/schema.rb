@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140216085048) do
+ActiveRecord::Schema.define(version: 20140221045426) do
 
   create_table "backend_customers", force: true do |t|
     t.string   "first_name"
@@ -48,6 +48,22 @@ ActiveRecord::Schema.define(version: 20140216085048) do
   end
 
   add_index "backend_educations", ["backend_customer_id"], name: "backend_educations_backend_customer_id_fk", using: :btree
+
+  create_table "backend_positions", force: true do |t|
+    t.string   "industry"
+    t.integer  "backend_customer_id"
+    t.string   "name"
+    t.string   "size"
+    t.string   "company_type"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.text     "summary"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "backend_positions", ["backend_customer_id"], name: "backend_positions_backend_customer_id_fk", using: :btree
 
   create_table "linkedin_data", force: true do |t|
     t.string   "email",        null: false
@@ -96,5 +112,7 @@ ActiveRecord::Schema.define(version: 20140216085048) do
   add_foreign_key "backend_customers", "users", name: "backend_customers_user_id_fk"
 
   add_foreign_key "backend_educations", "backend_customers", name: "backend_educations_backend_customer_id_fk"
+
+  add_foreign_key "backend_positions", "backend_customers", name: "backend_positions_backend_customer_id_fk"
 
 end

@@ -53,6 +53,26 @@
       = edu.end_date
 
 
+%h1
+  your Employment history
+
+-@backend_customer.backend_position.each do |position|
+  %div
+    %p{:style => "font-weight:bold"}
+      name:
+      = position.name
+    %p
+      industry:
+      = position.industry
+    %p
+      title:
+      = position.title
+    %p
+      summary:
+      = position.summary
+
+
+
 
 
 = link_to 'Back', backend_welcome_index_path

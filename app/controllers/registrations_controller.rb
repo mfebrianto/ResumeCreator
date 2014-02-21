@@ -36,7 +36,9 @@ class RegistrationsController < Devise::RegistrationsController
     @Role = Role.find_by_name('customer')
     @user.roles.concat(@Role)
 
+    Rails.logger.info ">>>>>>1"
     if @user.save
+      Rails.logger.info ">>>>>>2"
       sign_in @user
     end
   end
