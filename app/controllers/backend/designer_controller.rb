@@ -4,4 +4,8 @@ class Backend::DesignerController < ApplicationController
 
   end
 
+  def become_designer
+    redirect_to backend_designer_index_path
+  end
+
 end

@@ -9,7 +9,12 @@ ResumeCreator::Application.routes.draw do
     end
 
     resources :welcome
-    resources :designer
+
+    resources :designer do
+      collection do
+        get 'become_designer'
+      end
+    end
 
   end
 

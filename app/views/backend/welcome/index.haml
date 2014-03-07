@@ -5,6 +5,8 @@
 /= link_to 'Create New Customer', backend_customers_path
 
 = link_to 'Fetch my information from Linked in', complete_profile_backend_customers_path
+= link_to 'I want to become a Designer', become_designer_backend_designer_index_path
+
 
 - if can? :manage, @backend_design
   = link_to 'View All Designs', new_backend_design_path
