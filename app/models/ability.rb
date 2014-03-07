@@ -29,7 +29,7 @@ class Ability
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
     user ||= User.new # in case of guest
-    if user.has_role? :designer
+    if user.has_role? :design
       can :manage, @backend_design
     else
 

@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 customer = Role.create(name: 'customer')
-designer = Role.create(name: 'designer')
+designer = Role.create(name: 'design')

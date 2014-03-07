@@ -1,7 +1,6 @@
 ResumeCreator::Application.routes.draw do
-  namespace :backend do
-    resources :designs
 
+  namespace :backend do
 
     resources :customers do
       collection do
@@ -10,6 +9,8 @@ ResumeCreator::Application.routes.draw do
     end
 
     resources :welcome
+    resources :designer
+
   end
 
 
