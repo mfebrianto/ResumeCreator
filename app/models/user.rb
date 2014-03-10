@@ -13,6 +13,12 @@ class User < ActiveRecord::Base
     roles.any? { |r| r.name.underscore.to_sym == role_sym }
   end
 
+  def is_designer
+    @Roles = Role.find_by_name('designer')
+    return true if roles.include?@Roles
+    return false
+  end
+
   private
 
   def generate_api_key
