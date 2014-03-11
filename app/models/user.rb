@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   before_create :generate_api_key
 
+
   has_and_belongs_to_many :roles
   has_one :backend_customer
 

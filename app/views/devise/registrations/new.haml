@@ -1,0 +1,25 @@
+%h2 Sign up
+
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = flash[:error]
+  %div
+    = f.label :email
+    %br/
+    = f.email_field :email, :autofocus => true
+  %div
+    = f.label :password
+    %br/
+    = f.password_field :password
+  %div
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation
+
+  - if @user.email.blank?                                                     # to save as customer or designer
+    <input id="is_customer" name="is_customer" type="hidden" value="no"/>
+  - else
+    <input id="is_customer" name="is_customer" type="hidden" value="yes"/>
+
+  %div= f.submit "Sign up"
+
+= render "devise/shared/links"

@@ -37,19 +37,23 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
 
-    if User.find_by_email(user_params[:email])            # if user already exist send error message
+    if User.find_by_email(user_params[:email])                   #if user already exist send error message
       flash[:error] = "Account already exist, please login"
       redirect_to new_user_session_path
     end
 
+
     @user = User.new(user_params)
-    #create roles
-    @Role = Role.find_by_name('customer')
+
+    wanted_role = 'customer'                                     #set customer as default role
+    wanted_role = 'designer' if params['is_customer'].eql?('no')
+
+    @Role = Role.find_by_name(wanted_role)
     @user.roles.concat(@Role)
 
-    Rails.logger.info ">>>>>>1"
+    Rails.logger.info
     if @user.save
-      Rails.logger.info ">>>>>>2"
+      Rails.logger.info
       sign_in @user
     end
   end
