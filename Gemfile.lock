@@ -220,7 +220,7 @@ DEPENDENCIES
   cancan (= 1.6.10)
   capybara-webkit (= 1.1.1)
   coffee-rails (~> 4.0.0)
-  database_cleaner
+  database_cleaner (= 1.2.0)
   devise (= 3.2.2)
   email_spec (= 1.5.0)
   factory_girl_rails (= 4.3.0)

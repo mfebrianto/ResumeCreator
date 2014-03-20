@@ -10,8 +10,8 @@ gem 'devise', '3.2.2'
 gem 'foreigner', '1.6.0'
 gem 'cancan', '1.6.10'
 
-#to save profile picture
-gem 'paperclip', '4.1.0'
+
+gem 'paperclip', '4.1.0'    #to save profile picture
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -54,7 +54,7 @@ group :test do
   gem 'capybara-webkit', '1.1.1'
   gem 'guard-rspec'
   gem 'launchy', '2.4.2'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '1.2.0'              # configure which table truncated, which one is not
   gem 'email_spec', '1.5.0'
   gem 'action_mailer_cache_delivery', '0.3.7'
   gem 'simplecov', '0.8.2'

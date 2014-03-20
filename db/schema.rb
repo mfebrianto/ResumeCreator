@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307035853) do
+ActiveRecord::Schema.define(version: 20140221045426) do
 
   create_table "backend_customers", force: true do |t|
     t.string   "first_name"
@@ -27,12 +27,6 @@ ActiveRecord::Schema.define(version: 20140307035853) do
   end
 
   add_index "backend_customers", ["user_id"], name: "backend_customers_user_id_fk", using: :btree
-
-  create_table "backend_designs", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "backend_educations", force: true do |t|
     t.string   "activities"
@@ -64,24 +58,6 @@ ActiveRecord::Schema.define(version: 20140307035853) do
   end
 
   add_index "backend_positions", ["backend_customer_id"], name: "backend_positions_backend_customer_id_fk", using: :btree
-
-  create_table "designers", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "designers", ["email"], name: "index_designers_on_email", unique: true, using: :btree
-  add_index "designers", ["reset_password_token"], name: "index_designers_on_reset_password_token", unique: true, using: :btree
 
   create_table "linkedin_data", force: true do |t|
     t.string   "email",        null: false
