@@ -5,7 +5,7 @@ development:
   database: resume_creator_development
   pool: 5
   username: root
-  password: passw0rd
+  password: password
 
 test:
   adapter: mysql2
@@ -14,4 +14,4 @@ test:
   database: resume_creator_test
   pool: 5
   username: root
-  password: passw0rd
+  password: password
