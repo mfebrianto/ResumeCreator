@@ -1,0 +1,21 @@
+<h1>Payment#new</h1>
+<h2>Check me out in app/views/payments/new</h2>
+<br>
+<h3>Specify price and currency type</h3>
+
+<%= form_for @payment do |p| %>
+<p>
+	<%= p.label :price %> <br />
+	<%= p.text_field :total %>
+</p>
+
+<p>
+	<%= p.label :currency_type %> <br />
+	<%= p.text_field :currency %>
+</p>
+
+<p>
+	<%= p.submit %>
+</p>
+
+<% end %>

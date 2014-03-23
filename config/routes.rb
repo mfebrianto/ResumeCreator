@@ -1,4 +1,8 @@
 ResumeCreator::Application.routes.draw do
+  
+  resources :products
+  resources :payments
+  
   namespace :backend do
     resources :designs
 

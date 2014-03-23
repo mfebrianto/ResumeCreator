@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140216085048) do
+ActiveRecord::Schema.define(version: 20140305030730) do
 
   create_table "backend_customers", force: true do |t|
     t.string   "first_name"
@@ -57,6 +57,21 @@ ActiveRecord::Schema.define(version: 20140216085048) do
   end
 
   add_index "linkedin_data", ["email"], name: "index_linkedin_data_on_email", unique: true, using: :btree
+
+  create_table "payments", force: true do |t|
+    t.decimal  "total",      precision: 4, scale: 2
+    t.string   "currency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.string   "currency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "price",      precision: 4, scale: 2
+  end
 
   create_table "roles", force: true do |t|
     t.string   "name"

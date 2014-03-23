@@ -1,0 +1,20 @@
+<h1>Payment#show</h1>
+<h2>Check me out in app/views/payments/show</h2>
+<br />
+<h3>Make Payment Through Paypal</h3>
+<h4>Cost: <%= @payment.total %> <%= @payment.currency %></h4>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="tulus.ryan@gmail.com">
+<input type="hidden" name="lc" value="AU">
+<input type="hidden" name="item_name" value="CV Generator">
+<input type="hidden" name="button_subtype" value="services">
+<input type="hidden" name="no_note" value="0">
+<input type="hidden" name="cn" value="Add special instructions to the seller">
+<input type="hidden" name="no_shipping" value="1">
+<input type="hidden" name="amount" value="<%= @payment.total %>">
+<input type="hidden" name="currency_code" value="<%= @payment.currency %>">
+<input type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">
+</form>
