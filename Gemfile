@@ -61,6 +61,8 @@ group :test do
   gem 'spork', '0.9.2'
 end
 
+gem 'wicked_pdf', '0.9.10'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
@@ -72,3 +74,4 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'wkhtmltopdf-binary', '0.9.9.1'

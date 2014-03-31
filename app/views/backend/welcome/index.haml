@@ -7,5 +7,8 @@
 = link_to 'Fetch my information from Linked in', complete_profile_backend_customers_path
 %br
 = link_to 'Paypal Checkout', new_payment_path 
+%br
+= link_to 'Sample resume in PDF', htmltopdf_sample_resume_path(:format => :pdf)
+
 - if can? :manage, @backend_design
   = link_to 'View All Designs', new_backend_design_path

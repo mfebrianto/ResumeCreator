@@ -1,0 +1,2 @@
+module HtmltopdfHelper
+end

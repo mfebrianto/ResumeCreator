@@ -1,0 +1,292 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+
+@font-face {
+    font-family: "Trebuchet";
+    src: url("../fonts/sample_resume/Trebuchet_MS.ttf") format('truecopy');
+}
+@font-face {
+    font-family: "Trebuchet";
+    src: url("../fonts/sample_resume/Trebuchet_MS_Bold.ttf") format('truecopy');
+    font-weight: bold;
+}
+
+
+
+body{
+	margin: 0px;
+	padding: 0px;
+	height:100%;
+	background: #FFFFFF;
+	font-family:"Trebuchet",Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height:16px;
+}
+
+
+
+html{
+height:100%;
+}
+
+.mastercontainer{
+	min-width: 100%;
+	min-height: 100%;
+	z-index:0;
+	background-color:#CCC;
+	
+}
+
+#leftHalf {
+  /* background-color:#ff000f;
+   min-width: 50%;
+   position: absolute;
+   left: 0px;
+   min-height: 500px;
+   z-index:-1;*/
+  
+  
+}
+#rightHalf {
+  /*background-color:#000000;
+   min-width: 50%;
+   position: absolute;
+   right: 0px;
+   min-height: 50%;
+   z-index:-1;*/
+  
+  
+}
+
+.container{
+	width: 1430px;
+	position:relative;
+	height:auto;
+	margin: 0px auto;
+	overflow:hidden;
+	background-color:#aa0000;
+	 z-index:2;
+}
+
+.containerfleft{
+	width: 100%;
+	float:left;
+	height:auto;
+	background-color:#aa0000;
+}
+
+.containerheader{
+	width: 100%;
+	float:left;
+	height:auto;
+	background-color:#000000;
+	color:#ffffff;
+	font-size:24px;
+	line-height:normal;
+	padding:84px 0px;
+}
+
+.containerheader h1{
+	text-align:center;
+	margin: 0 10px 30px 10px;
+}
+
+.containerexperiences, .containereducation{
+	width: 100%;
+	float:left;
+	height:auto;
+	background-color:#ffffff;
+	color:#777777	;
+	font-size:24px;
+	line-height:normal;
+	
+}
+
+.containerexperiences p, .containereducation p{
+	margin: 0px;
+	padding: 0px;
+}
+
+.containerexperiences h1, .containereducation h1{
+	text-align:left;
+	margin: 0 10px 30px 50px;
+	color:#f6a117	;
+	padding:70px 0;
+}
+
+.containerexperiences h4, .containereducation h4{
+color:#000000;
+font-weight:bold;
+margin:0px;
+font-size:30px;
+margin:0 0 10px 0;
+}
+
+.containereducation th{
+width:35%;
+}
+
+#companyexperience{
+	margin-top:20px;
+	text-align:left;
+	font-size:30px;
+color:#777777	;
+}
+
+#companyexperience span, #educationfacility{
+vertical-align:top;
+color:#f6a117	;
+font-size:30px;
+font-weight:bold;
+}
+
+#educationdegree {
+}
+
+#historyexperience{
+	text-align:right;
+	font-size:30px;
+color:#777777	;
+}
+
+#firstcontent{
+
+padding:70px 0 20px 0;
+border-bottom:dotted #C7C7C7 4px;
+}
+
+#middlecontent{
+
+padding:20px 0 20px 0;
+border-bottom:dotted #C7C7C7 4px;
+}
+
+#lastcontent{
+padding:20px 0 20px 0;
+}
+
+#continueborder{
+border-bottom:solid #C7C7C7 1px;
+border-top:solid #dddddd 1px;
+width:96%;
+margin:5px 2%;
+float:left;
+}
+
+#leftcolumn{
+	width:35%;
+	min-height: 100%;
+	float:left;
+}
+
+#leftcolumn {
+}
+
+#leftcolumn table{
+
+}
+
+
+#rightcolumn{
+	width:60%;
+	min-height: 100%;
+	float:left;
+	padding: 0 5% 0 0;
+}
+
+#rightcolumn table th{
+	text-align:left;
+	padding-right:20px;
+
+}
+
+#skillsdiv{
+margin: 20px 0 0 0;
+padding: 10px 0;
+border-top:dotted #f6a117 4px;
+}
+
+#skillsdiv ul{
+	list-style-type: none;
+	padding: 0px;
+}
+
+#skillsdiv ul li{
+	background-color: #f6a117;
+	float:left;
+	margin: 5px 14px 5px 0;
+	padding: 5px 10px;
+	   -moz-border-radius: 10px; 
+   -webkit-border-radius: 10px; 
+   border-radius: 10px;
+	box-shadow: 0px 25px 30px #554117;
+	
+}
+
+
+#profilephoto{
+	width:340px;
+	height:340px;
+	background: red; 
+   -moz-border-radius: 170px; 
+   -webkit-border-radius: 170px; 
+   border-radius: 170px;
+	background-size: 100% auto;
+}
+
+
+
+
+#header{
+	width:100%;
+	height:190px;
+	float:left;
+	background:#00aa00;
+	
+}
+
+#leftcolumn1{
+	width:35%;
+	min-height: 100%;
+	float:left;
+	background:#ffaa00;
+}
+
+#rightcolumn1{
+	width:65%;
+	min-height: 100%;
+	float:left;
+	background:#aaff00;
+}
+
+#thirdcolumn{
+	width:33%;
+	min-height: 100%;
+	float:left;
+	background:#aaaaaa;
+}
+
+.divlongbottom{
+	min-width:100%;
+	
+	float:left;
+	height:80px;
+	overflow:hidden;
+	background-position:top;
+	background:#ffa255;
+}
+
+.divbottom{
+	width: 1280px;
+	position:relative;
+	margin: 0px auto;
+	padding: 50px 0 0 0;
+	height:80px;
+	color:#FFFFFF;
+	font-size:16px;
+	overflow:hidden;
+	background-image:url(../images/bgbottom.jpg);
+	background-color:#ffa255;
+}

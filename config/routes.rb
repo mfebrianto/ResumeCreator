@@ -1,5 +1,7 @@
 ResumeCreator::Application.routes.draw do
   
+  get "htmltopdf/sample_resume"
+  
   resources :products
   resources :payments
   
